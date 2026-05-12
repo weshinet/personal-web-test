@@ -1,14 +1,7 @@
-/* 匯入 MiSans Heavy 等效粗體，這裡使用 Noto Sans SC 900 替代 MiSans Heavy，效果一致 */
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@900&display=swap');
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-body {
-  font-family: "MiSans", "Noto Sans SC", sans-serif;
 }
 
 /* 頂部導航列 */
@@ -21,22 +14,20 @@ body {
   z-index: 999;
 }
 
-/* 選單按鈕容器 */
 .menu-container {
   position: relative;
   display: inline-block;
 }
 
-/* 左上角漢堡Icon（改用文字，無需外部圖片） */
+/* 漢堡選單 Icon */
 .menu-icon {
   font-size: 32px;
   color: white;
   cursor: pointer;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-  user-select: none;
+  text-shadow: 0 2px 5px rgba(0,0,0,0.3);
 }
 
-/* 下拉選單預設隱藏 */
+/* 下拉選單 */
 .dropdown-menu {
   display: none;
   position: absolute;
@@ -46,47 +37,43 @@ body {
   min-width: 180px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
   border-radius: 8px;
-  overflow: hidden;
 }
 
-/* 下拉選單連結樣式 */
 .dropdown-menu a {
   display: block;
   padding: 14px 20px;
   text-decoration: none;
   color: #222;
-  font-size: 16px;
 }
 
 .dropdown-menu a:hover {
   background: #f0f0f0;
 }
 
-/* 顯示下拉選單 */
 .show {
   display: block;
 }
 
-/* 滿版背景區塊 */
+/* --------------- 重點：這裡直接放你的圖片網址 --------------- */
 .hero {
   width: 100vw;
   min-height: 100vh;
-  background: url(../images/bg-main.jpg) no-repeat center top;
-  background-size: 100% auto; /* 左右滿版、上下可滾動 */
+  background-image: url("https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/789822f57ed2476faec8f432cab8dc6e.png");
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: 100% auto; /* 左右滿版，上下可滾動 */
   display: flex;
-  align-items: center; /* 垂直置中 */
-  justify-content: center; /* 水平置中 */
+  align-items: center;
+  justify-content: center;
 }
 
-/* 置中標題文字 */
+/* 文字樣式 */
 .hero-title {
-  font-family: "MiSans Heavy", "Noto Sans SC", sans-serif;
+  font-family: "MiSans Heavy", sans-serif;
   font-weight: 900;
   font-size: clamp(2.5rem, 8vw, 6rem);
   color: white;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  text-shadow: 0 4px 12px rgba(0,0,0,0.35);
+  text-shadow: 0 4px 12px rgba(0,0,0,0.4);
   text-align: center;
   padding: 0 20px;
 }
