@@ -3,16 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>首頁 - 我的網站</title>
+  <title>GULU’s PERSONAL WEBSITE</title>
+  <!-- 匯入 MiSans 字體 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <!-- 導航列：左上角 Icon + 下拉選單 -->
   <header class="navbar">
     <div class="menu-container">
-      <!-- 點擊 Icon 展開下拉選單 -->
-      <img src="images/menu-icon.png" alt="選單" class="menu-icon" id="menuBtn">
-      <!-- 下拉選單 -->
+      <!-- 改用漢堡文字Icon，不用外部圖片 -->
+      <div class="menu-icon" id="menuBtn">☰</div>
       <div class="dropdown-menu" id="dropdownMenu">
         <a href="index.html">🏠 首頁</a>
         <a href="about.html">ℹ️ 關於我們</a>
@@ -21,13 +24,11 @@
     </div>
   </header>
 
-  <!-- 頁面內容 -->
-  <main class="content">
-    <h1>這是首頁</h1>
-    <p>點擊左上角圖示可切換頁面</p>
-  </main>
+  <!-- 滿版背景 + 置中文字 -->
+  <section class="hero">
+    <h1 class="hero-title">GULU’s PERSONAL WEBSITE</h1>
+  </section>
 
   <script src="js/script.js"></script>
 </body>
-</html>
 </html>
