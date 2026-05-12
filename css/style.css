@@ -25,6 +25,7 @@
   color: white;
   cursor: pointer;
   text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  user-select: none;
 }
 
 /* 下拉選單 */
@@ -54,14 +55,23 @@
   display: block;
 }
 
-/* --------------- 重點：這裡直接放你的圖片網址 --------------- */
+/* --------------- 關鍵修正：讓圖片可上下滾動 --------------- */
+html, body {
+  height: auto; /* 解除高度鎖死，允許滾動 */
+}
+
 .hero {
   width: 100vw;
-  min-height: 100vh;
+  /* 高度改成圖片真實高度，不是螢幕高度 */
+  height: auto;
+  /* 背景圖左右滿版、完整顯示上下，可跟頁面滾動 */
   background-image: url("https://github.com/weshinet/personal-web-test/blob/main/images/bg-main.jpg?raw=true");
   background-position: center top;
   background-repeat: no-repeat;
-  background-size: 100% auto; /* 左右滿版，上下可滾動 */
+  background-size: 100% auto; /* 左右撐滿，高度自動完整顯示 */
+  background-attachment: scroll; /* 背景跟頁面一起滾動，不是固定 */
+  /* 用 padding 撐開高度，讓文字垂直置中 */
+  padding: 45vh 0;
   display: flex;
   align-items: center;
   justify-content: center;
