@@ -58,7 +58,7 @@
 .hero {
   width: 100vw;
   min-height: 100vh;
-  background-image: url("https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/789822f57ed2476faec8f432cab8dc6e.png");
+  background-image: url("https://github.com/weshinet/personal-web-test/blob/main/images/bg-main.jpg?raw=true");
   background-position: center top;
   background-repeat: no-repeat;
   background-size: 100% auto; /* 左右滿版，上下可滾動 */
