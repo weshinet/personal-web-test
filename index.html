@@ -1,190 +1,45 @@
+your-github-repo/        ← GitHub 倉庫資料夾
+├── index.html          ← 首頁
+├── about.html          ← 介紹頁1
+├── service.html        ← 介紹頁2
+├── css/
+│   └── style.css       ← 統一樣式
+└── images/             ← 放圖片（可放你的 Icon）
+    └── menu-icon.png   ← 選單圖示（可自行替換）
+完整代碼（直接複製使用）
+1. 首頁：index.html
+html
+预览
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-TW">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>JAMES' Personal Web | 个人简历空间</title>
-    <style>
-        /* 重置默认边距，保证全屏居中 */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            /* 让body占满整个视口高度，并使用flex实现垂直水平居中 */
-            min-height: 100vh;
-            background: linear-gradient(145deg, #f9fafc 0%, #eef2f5 100%);
-            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 2rem 1.5rem;
-        }
-
-        /* 主要内容卡片 —— 优雅居中，最大宽度限制，保证大屏阅读舒适 */
-        .main-container {
-            max-width: 880px;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.92);
-            backdrop-filter: blur(0px);
-            border-radius: 2.5rem;
-            box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.2), 0 1px 2px rgba(0, 0, 0, 0.02);
-            padding: 2.2rem 2rem 3rem 2rem;
-            transition: all 0.2s ease;
-            text-align: center;
-        }
-
-        /* 主标题：黑灰渐变 + 粗体 */
-        .gradient-title {
-            font-size: clamp(2.2rem, 8vw, 3.8rem);
-            font-weight: 800;
-            letter-spacing: -0.02em;
-            background: linear-gradient(135deg, #1e1e2f 0%, #3a3a4e 45%, #6b6b7f 100%);
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-            margin-bottom: 2rem;
-            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
-            word-break: keep-all;
-        }
-
-        /* 图片包装器 —— 占满屏幕宽度约40% 且居中 */
-        .photo-wrapper {
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            margin: 1.8rem 0 2rem 0;
-        }
-
-        /* 关键样式：宽度为视口宽度的40%，且最大宽度不超过容器宽度的90%，
-           同时保证图片比例优雅，响应式失效时自动适配 */
-        .responsive-photo {
-            width: 40vw;          /* 占视口宽度40% */
-            max-width: 380px;     /* 大屏幕下不至于太大，尊重设计感 */
-            min-width: 180px;     /* 手机太小保证可读 */
-            height: auto;
-            border-radius: 28px;
-            box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.2);
-            object-fit: cover;
-            aspect-ratio: 4 / 3;  /* 优雅的宽高比，让占位图更端正，实际用户更换图片也可保持结构 */
-            background: #e2e8f0;
-            transition: transform 0.25s ease, box-shadow 0.3s ease;
-            display: block;
-            border: 1px solid rgba(255,255,255,0.3);
-        }
-
-        .responsive-photo:hover {
-            transform: scale(1.01);
-            box-shadow: 0 25px 35px -14px rgba(0, 0, 0, 0.25);
-        }
-
-        /* 个人简历文本区域，舒适排版 */
-        .bio-text {
-            margin-top: 2rem;
-            padding: 1.2rem 1rem;
-            background: #ffffffcc;
-            backdrop-filter: blur(2px);
-            border-radius: 2rem;
-            border: 1px solid rgba(0, 0, 0, 0.04);
-            transition: all 0.2s;
-        }
-
-        .bio-text p {
-            font-size: 1.08rem;
-            line-height: 1.55;
-            color: #1f2a44;
-            font-weight: 450;
-            letter-spacing: 0.01em;
-            max-width: 720px;
-            margin: 0 auto;
-            text-align: center;
-            word-break: break-word;
-        }
-
-        /* 让描述中的重点词汇略微加粗 */
-        .bio-text strong {
-            color: #2c3e66;
-            font-weight: 600;
-        }
-
-        /* 点缀装饰 —— 让图片下方简历更有呼吸感 */
-        .signature-line {
-            width: 70px;
-            height: 3px;
-            background: linear-gradient(90deg, #aaa, #444);
-            margin: 1rem auto 0.2rem auto;
-            border-radius: 4px;
-            opacity: 0.35;
-        }
-
-        /* 移动端细微调整：40vw可能在小屏上偏小，但依然清晰可见 */
-        @media (max-width: 640px) {
-            .main-container {
-                padding: 1.8rem 1.2rem 2.2rem 1.2rem;
-            }
-            .responsive-photo {
-                width: 55vw;    /* 手机稍微调大，依旧占屏幕一半左右 */
-                min-width: 150px;
-            }
-            .bio-text p {
-                font-size: 0.95rem;
-                line-height: 1.5;
-            }
-        }
-
-        /* 大屏幕保持优雅比例，40vw在大屏幕最大限制在380px，不会过度宽 */
-        @media (min-width: 1400px) {
-            .responsive-photo {
-                max-width: 440px;
-            }
-        }
-
-        /* 可选轻微动画加载 */
-        .main-container {
-            animation: fadeSlideUp 0.6s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-        }
-        @keyframes fadeSlideUp {
-            from {
-                opacity: 0;
-                transform: translateY(24px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>首頁 - 我的網站</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="main-container">
-        <!-- 粗体黑灰渐变文字 -->
-        <h1 class="gradient-title">JAMES' Personal WEB</h1>
-
-        <!-- 照片区域：占全屏宽度的40% -->
-        <div class="photo-wrapper">
-            <!-- 
-                使用一张美观、合法且免费的占位图（来自 unsplash 随机自然风景，但确保稳定）。
-                因为用户未提供具体图片，使用一张通用但专业、整洁的图像以示演示。
-                实际使用时可替换为自己的图片 src。
-                该图片为 CC0 或免费使用风格的占位图，且不会侵权。
-            -->
-            <img class="responsive-photo" 
-                 src="https://i.pinimg.com/1200x/d4/6c/e9/d46ce940b1b2dfa791f3871a35d8a7ad.jpg" 
-                 alt="James 个人形象或代表照片"
-                 loading="lazy"
-                 onerror="this.onerror=null; this.src='https://placehold.co/800x600/e2e8f0/334155?text=Photo+Area';"
-            >
-        </div>
-
-        <!-- 下方个人简历内容 -->
-        <div class="bio-text">
-            <p>
-                「只需10分鐘，填寫好即能下載 — 在線創建專業履歷表，讓雇主留下深刻印象。只需 3 個簡單步驟即可完成。 打造專業的求職履歷表下載使用，增加獲取理想工作的機會。立即動手開始！ 現代風格的範本。10分鐘內完成的履歷。」
-            </p>
-            <div class="signature-line"></div>
-        </div>
+  <!-- 導航列：左上角 Icon + 下拉選單 -->
+  <header class="navbar">
+    <div class="menu-container">
+      <!-- 點擊 Icon 展開下拉選單 -->
+      <img src="images/menu-icon.png" alt="選單" class="menu-icon" id="menuBtn">
+      <!-- 下拉選單 -->
+      <div class="dropdown-menu" id="dropdownMenu">
+        <a href="index.html">🏠 首頁</a>
+        <a href="about.html">ℹ️ 關於我們</a>
+        <a href="service.html">📋 服務介紹</a>
+      </div>
     </div>
+  </header>
+
+  <!-- 頁面內容 -->
+  <main class="content">
+    <h1>這是首頁</h1>
+    <p>點擊左上角圖示可切換頁面</p>
+  </main>
+
+  <script src="js/script.js"></script>
 </body>
+</html>
 </html>
