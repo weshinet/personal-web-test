@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>服務介紹 - 我的網站</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- 導航列（統一不變） -->
+  <header class="navbar">
+    <div class="menu-container">
+      <img src="images/menu-icon.png" alt="選單" class="menu-icon" id="menuBtn">
+      <div class="dropdown-menu" id="dropdownMenu">
+        <a href="index.html">🏠 首頁</a>
+        <a href="about.html">ℹ️ 關於我們</a>
+        <a href="service.html">📋 服務介紹</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="content">
+    <h1>服務介紹</h1>
+    <p>這是第二個介紹頁面內容</p>
+  </main>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
+4. 樣式檔：css/style.css
+css
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Microsoft JhengHei", sans-serif;
+}
+
+/* 頂部導航列 */
+.navbar {
+  background: #2c3e50;
+  padding: 15px 20px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+}
+
+/* 選單按鈕容器 */
+.menu-container {
+  position: relative;
+  display: inline-block;
+}
+
+/* 左上角 Icon 樣式 */
+.menu-icon {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+/* 下拉選單預設隱藏 */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 50px;
+  left: 0;
+  background: white;
+  min-width: 160px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+/* 下拉選單連結樣式 */
+.dropdown-menu a {
+  display: block;
+  padding: 12px 16px;
+  text-decoration: none;
+  color: #333;
+}
+
+.dropdown-menu a:hover {
+  background: #f1f1f1;
+}
+
+/* 顯示下拉選單 */
+.show {
+  display: block;
+}
+
+/* 頁面內容（避免被導航列擋住） */
+.content {
+  margin-top: 120px;
+  padding: 20px;
+  text-align: center;
+}
